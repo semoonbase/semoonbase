@@ -1,0 +1,11 @@
+{
+  "name": "masher",
+  "version": "0.1.0",
+  "description": "Keyboard masher for common bios keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Beach <ibeach355@gmail.com>",
+  "license": "BSD-2-Clause"
+}
