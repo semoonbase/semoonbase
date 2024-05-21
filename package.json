@@ -1,11 +1,6 @@
 {
-  "name": "semoonbase",
-  "version": "1.0.0",
-  "description": "Moonbase project repository",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "lmpriestley <lmpriestley@outlook.com>",
-  "license": "BSD-2-Clause"
+  "name": "sembase",
+  "workspaces": [
+    "projects/*"
+  ]
 }
