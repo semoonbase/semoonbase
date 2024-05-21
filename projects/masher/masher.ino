@@ -10,6 +10,9 @@ const int selectBlancco = 6;
 const int buttonPin = 8;
 bool buttonToggle = false; 
 int switchState = 0;
+//Delay on the rising and falling edges of the simulated keypress in milliseconds
+int mashDelay = 100;
+
 void setup()
 {
   // Declare the inputs as Pullups
@@ -64,8 +67,15 @@ void loop()
     Keyboard.press(KEY_ESC);
     Keyboard.press(' ');
   }
-  // else if (switchState == 5){
+  // else if (switchState == 5)
+  // {
   // TODO: add password functionallity
   // }
- 
+
+  //Adding delay to ensure the keypress is registered
+  delay(mashDelay);
+  //releasing any pressed keys
+  Keyboard.releaseAll();
+  //delaying again to ensure a proper gap betwen keypresses
+  delay(mashDelay);
 }
