@@ -51,6 +51,7 @@ def maybe_makedir(path):
         path (str): Path to a file to maybe create parents for.
     """
     # TODO(Lucas): Validate the path should be made
+    # TODO(Lucas): Propagate IO errors
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
 
@@ -64,6 +65,9 @@ def validate_outfile(path):
         None: If the outfile is valid.
         IOError: If the outfile is invalid.
     """
+    # TODO(Lucas): Validate the path is a file
+    # TODO(Lucas): Validate the file is writable
+    # TODO(Lucas): Allow consuder to branch if file exists
     if isinstance(path, str):
         return
     elif os.path.isdir(path):
