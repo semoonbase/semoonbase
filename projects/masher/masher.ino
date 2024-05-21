@@ -8,8 +8,7 @@ const int selectBlancco = 6;
 // TODO: add password functionallity
 // const int selectPassword = 7;
 const int buttonPin = 8;
-
-int previousButtonState = HIGH;
+bool buttonToggle = false; 
 int switchState = 0;
 void setup()
 {
@@ -27,19 +26,23 @@ void setup()
 
 void loop()
 {
-  //
+  //Toggling the internal state of the button if it is pressed
   int buttonState = digitalRead(buttonPin);
-
-  // Only reading the switch state if the button is pressed
-  if (buttonState == LOW && previousButtonState == HIGH)
+  if (buttonState == HIGH)
   {
-    //
+  buttonToggle = not(buttonToggle);
+  //Reading the switch state when the button is toggled on
+  if (buttonToggle == true)
+  {
+
+  }
+  //Releasing the keyboard when the button is toggled off
+  if (buttonToggle == false){
+    Keyboard.end();
+  }
   }
 
-  // Releasing the keyboard if the button is not pressed to allow bios configuration
-  if (buttonState == HIGH && previousButtonState == LOW)
-  {
-  }
+
   if (switchState == 0)
   {
     Keyboard.press(KEY_F2);
@@ -64,5 +67,5 @@ void loop()
   // else if (switchState == 5){
   // TODO: add password functionallity
   // }
-  previousButtonState = buttonState;
+ 
 }
