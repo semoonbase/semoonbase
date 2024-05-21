@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-fw && npm run build-cad",
+    "build-fw": "arduino-cli compile -b arduino:avr:leonardo",
+    "build-cad": "python3 scripts/build.py ../../build/masher.3mf",
     "postinstall": "npm run install-toolchain && npm run install-lib",
     "install-toolchain": "arduino-cli core install arduino:avr",
-    "install-lib": "arduino-cli lib install Keyboard",
-    "build": "arduino-cli compile -b arduino:avr:leonardo"
+    "install-lib": "arduino-cli lib install Keyboard"
   },
   "author": "Ian Beach <ibeach355@gmail.com>",
   "license": "BSD-2-Clause"
