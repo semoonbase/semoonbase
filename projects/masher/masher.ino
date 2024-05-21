@@ -8,9 +8,9 @@ const int selectBlancco = 6;
 // TODO: add password functionallity
 // const int selectPassword = 7;
 const int buttonPin = 8;
-bool buttonToggle = false; 
+bool buttonToggle = false;
 int switchState = 0;
-//Delay on the rising and falling edges of the simulated keypress in milliseconds
+// Delay on the rising and falling edges of the simulated keypress in milliseconds
 int mashDelay = 100;
 
 void setup()
@@ -29,22 +29,21 @@ void setup()
 
 void loop()
 {
-  //Toggling the internal state of the button if it is pressed
+  // Toggling the internal state of the button if it is pressed
   int buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH)
   {
-  buttonToggle = not(buttonToggle);
-  //Reading the switch state when the button is toggled on
-  if (buttonToggle == true)
-  {
-
+    buttonToggle = not(buttonToggle);
+    // Reading the switch state when the button is toggled on
+    if (buttonToggle == true)
+    {
+    }
+    // Releasing the keyboard when the button is toggled off
+    if (buttonToggle == false)
+    {
+      Keyboard.end();
+    }
   }
-  //Releasing the keyboard when the button is toggled off
-  if (buttonToggle == false){
-    Keyboard.end();
-  }
-  }
-
 
   if (switchState == 0)
   {
@@ -72,10 +71,10 @@ void loop()
   // TODO: add password functionallity
   // }
 
-  //Adding delay to ensure the keypress is registered
+  // Adding delay to ensure the keypress is registered
   delay(mashDelay);
-  //releasing any pressed keys
+  // releasing any pressed keys
   Keyboard.releaseAll();
-  //delaying again to ensure a proper gap betwen keypresses
+  // delaying again to ensure a proper gap betwen keypresses
   delay(mashDelay);
 }
