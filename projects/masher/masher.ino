@@ -40,21 +40,8 @@ void setup()
 
 void loop()
 {
-  // Toggling the internal state of the button if it is pressed
-  int buttonState = digitalRead(TOGGLE);
-  if (buttonState == HIGH)
-  {
-    buttonToggle = not(buttonToggle);
-    // Reading the switch state when the button is toggled on
-    if (buttonToggle == true)
-    {
-    }
-    // Releasing the keyboard when the button is toggled off
-    if (buttonToggle == false)
-    {
-      Keyboard.end();
-    }
-  }
+  // Handle togglingg of keyboard output
+  maybe_toggle(digitalRead(TOGGLE));
 
   if (switchState == 0)
   {
@@ -88,4 +75,24 @@ void loop()
   Keyboard.releaseAll();
   // delaying again to ensure a proper gap betwen keypresses
   delay(mashDelay);
+}
+
+/// @brief Handles toggling of keyboard functionality
+/// @param reading Reading from the digital input.
+void maybe_toggle(int reading)
+{
+  if (reading == HIGH)
+  {
+    buttonToggle = not(buttonToggle);
+    // Reading the switch state when the button is toggled on
+    if (buttonToggle == true)
+    {
+    }
+    // Releasing the keyboard when the button is toggled off
+    if (buttonToggle == false)
+    {
+      Keyboard.end();
+    }
+  }
+  return;
 }
