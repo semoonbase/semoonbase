@@ -43,17 +43,7 @@ void loop()
   // Handle togglingg of keyboard output
   maybe_toggle(digitalRead(TOGGLE));
 
-  // else if (switchState == 5)
-  // {
-  // TODO: add password functionallity
-  // }
-
-  // Adding delay to ensure the keypress is registered
-  delay(mashDelay);
-  // releasing any pressed keys
-  Keyboard.releaseAll();
-  // delaying again to ensure a proper gap betwen keypresses
-  delay(mashDelay);
+  mash(DELL);
 }
 
 /// @brief Handles toggling of keyboard functionality
@@ -76,22 +66,37 @@ void maybe_toggle(int reading)
   return;
 }
 
+/// @brief  High level key mashing function
+/// @param vendor Vendor to mash key for
+/// @return Error code
+int mash(GPIOAssignments vendor)
+{
+  mash_key(vendor);
+  // Adding delay to ensure the keypress is registered
+  delay(mashDelay);
+  // releasing any pressed keys
+  Keyboard.releaseAll();
+  // delaying again to ensure a proper gap betwen keypresses
+  delay(mashDelay);
+}
+
 /// @brief Presses the desired key based on digital input
 /// @param key Vendor to mash BIOS key for.
-int mash(GPIOAssignment vendor)
+int mash_key(GPIOAssignment vendor)
 {
   switch (vendor)
   {
   case DELL:
-    Keyboard.press(KEY_F2); break;
+    Keyboard.press(KEY_F2);
+    break;
   case HP:
-    Keyboard.press(KEY_F10); break;
+    Keyboard.press(KEY_F10);
     break;
   case LENOVO:
-    Keyboard.press(KEY_F1); break;
+    Keyboard.press(KEY_F1);
     break;
   case NETBOOT:
-    Keyboard.press(KEY_F12); break;
+    Keyboard.press(KEY_F12);
     break;
   case BLANCCO:
     Keyboard.press(KEY_ESC);
