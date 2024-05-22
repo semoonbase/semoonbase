@@ -8,7 +8,8 @@
     "postinstall": "npm run install-toolchain && npm run install-lib",
     "install-toolchain": "arduino-cli core install arduino:avr",
     "install-lib": "arduino-cli lib install Keyboard",
-    "build": "arduino-cli compile -b arduino:avr:leonardo"
+    "build": "arduino-cli compile -b arduino:avr:leonardo projects/masher",
+    "flash": "arduino-cli upload -p COM5 --fqbn arduino:avr:leonardo projects/masher"
   },
   "author": "Ian Beach <ibeach355@gmail.com>",
   "license": "BSD-2-Clause"
