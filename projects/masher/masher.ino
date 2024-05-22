@@ -1,36 +1,47 @@
 #include "Keyboard.h"
+
 // define variables for pins
-const int selectDell = 2;
-const int selectHP = 3;
-const int selectLenovo = 4;
-const int selectNetboot = 5;
-const int selectBlancco = 6;
+enum GPIOAssignments
+{
+  DELL = 2,
+  HP = 3,
+  LENOVO = 4,
+  NETBOOT = 5,
+  BLANCCO = 6,
+  TOGGLE = 8
+};
+
 // TODO: add password functionallity
 // const int selectPassword = 7;
-const int buttonPin = 8;
+// TODO(Lucas): Remove global mutable state
 bool buttonToggle = false;
 int switchState = 0;
 // Delay on the rising and falling edges of the simulated keypress in milliseconds
 int mashDelay = 100;
 
+void pinInput(int pin)
+{
+  pinMode(pin, INPUT_PULLUP);
+}
+
 void setup()
 {
   // Declare the inputs as Pullups
-  pinMode(selectDell, INPUT_PULLUP);
-  pinMode(selectHP, INPUT_PULLUP);
-  pinMode(selectLenovo, INPUT_PULLUP);
-  pinMode(selectNetboot, INPUT_PULLUP);
-  pinMode(selectBlancco, INPUT_PULLUP);
+  pinInput(DELL);
+  pinInput(HP);
+  pinInput(LENOVO);
+  pinInput(NETBOOT);
+  pinInput(BLANCCO);
   // TODO: add password functionallity
   // pinmode(selectPassword, INPUT_PULLUP);
-  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(TOGGLE, INPUT_PULLUP);
   Keyboard.begin();
 }
 
 void loop()
 {
   // Toggling the internal state of the button if it is pressed
-  int buttonState = digitalRead(buttonPin);
+  int buttonState = digitalRead(TOGGLE);
   if (buttonState == HIGH)
   {
     buttonToggle = not(buttonToggle);
