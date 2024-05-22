@@ -11,6 +11,35 @@ enum GPIOAssignment
   TOGGLE = 8
 };
 
+enum VendorKey
+{
+  DELL_KEY = KEY_F2,
+  HP_KEY = KEY_F10,
+  LENOVO_KEY = KEY_F1,
+  NETBOOT_KEY = KEY_F12,
+};
+
+/// @brief Maps a GPIOAssignment to a Keyboard Key.
+/// @param vendor Vedor assignment to get key for.
+/// @return Key to mash.
+VendorKey mapAssignment(GPIOAssignment vendor)
+{
+  switch (vendor)
+  {
+  case DELL:
+    return DELL_KEY;
+  case HP:
+    return HP_KEY;
+  case LENOVO:
+    return LENOVO_KEY;
+  case NETBOOT:
+    return NETBOOT_KEY;
+
+  default:
+    return -1;
+  }
+}
+
 // TODO: add password functionallity
 // const int selectPassword = 7;
 // TODO(Lucas): Remove global mutable state
@@ -69,7 +98,7 @@ void maybe_toggle(int reading)
 /// @brief  High level key mashing function
 /// @param vendor Vendor to mash key for
 /// @return Error code
-int mash(GPIOAssignments vendor)
+int mash(GPIOAssignment vendor)
 {
   mash_key(vendor);
   // Adding delay to ensure the keypress is registered
@@ -87,16 +116,16 @@ int mash_key(GPIOAssignment vendor)
   switch (vendor)
   {
   case DELL:
-    Keyboard.press(KEY_F2);
+    Keyboard.press(DELL_KEY);
     break;
   case HP:
-    Keyboard.press(KEY_F10);
+    Keyboard.press(HP_KEY);
     break;
   case LENOVO:
-    Keyboard.press(KEY_F1);
+    Keyboard.press(LENOVO_KEY);
     break;
   case NETBOOT:
-    Keyboard.press(KEY_F12);
+    Keyboard.press(NETBOOT_KEY);
     break;
   case BLANCCO:
     Keyboard.press(KEY_ESC);
