@@ -2,3 +2,5 @@
 .moon/cache
 .moon/docker
 .parcel-cache
+
+**/node_modules
