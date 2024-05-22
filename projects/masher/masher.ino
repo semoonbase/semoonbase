@@ -1,7 +1,7 @@
 #include "Keyboard.h"
 
 // define variables for pins
-enum GPIOAssignments
+enum GPIOAssignment
 {
   DELL = 2,
   HP = 3,
@@ -43,27 +43,6 @@ void loop()
   // Handle togglingg of keyboard output
   maybe_toggle(digitalRead(TOGGLE));
 
-  if (switchState == 0)
-  {
-    Keyboard.press(KEY_F2);
-  }
-  else if (switchState == 1)
-  {
-    Keyboard.press(KEY_F10);
-  }
-  else if (switchState == 2)
-  {
-    Keyboard.press(KEY_F1);
-  }
-  else if (switchState == 3)
-  {
-    Keyboard.press(KEY_F12);
-  }
-  else if (switchState == 4)
-  {
-    Keyboard.press(KEY_ESC);
-    Keyboard.press(' ');
-  }
   // else if (switchState == 5)
   // {
   // TODO: add password functionallity
@@ -95,4 +74,31 @@ void maybe_toggle(int reading)
     }
   }
   return;
+}
+
+/// @brief Presses the desired key based on digital input
+/// @param key Vendor to mash BIOS key for.
+int mash(GPIOAssignment vendor)
+{
+  switch (vendor)
+  {
+  case DELL:
+    Keyboard.press(KEY_F2); break;
+  case HP:
+    Keyboard.press(KEY_F10); break;
+    break;
+  case LENOVO:
+    Keyboard.press(KEY_F1); break;
+    break;
+  case NETBOOT:
+    Keyboard.press(KEY_F12); break;
+    break;
+  case BLANCCO:
+    Keyboard.press(KEY_ESC);
+    Keyboard.press(' ');
+    // TODO
+    break;
+  default:
+    break;
+  }
 }
