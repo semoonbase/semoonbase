@@ -10,7 +10,8 @@
     "install-lib": "arduino-cli lib install Keyboard",
     "build": "arduino-cli compile -b arduino:avr:leonardo ./masher.ino",
     "flash-win": "arduino-cli upload -p COM5 --fqbn arduino:avr:leonardo projects/masher",
-    "flash-lin": "arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:leonardo ./masher.ino"
+    "flash-lin": "arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:leonardo ./masher.ino",
+    "dev": "npm run build; npm run flash-lin; showkey -a"
   },
   "author": "Ian Beach <ibeach355@gmail.com>",
   "license": "BSD-2-Clause"
