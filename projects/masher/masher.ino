@@ -8,7 +8,8 @@ enum GPIOAssignment
   LENOVO = 4,
   NETBOOT = 5,
   BLANCCO = 6,
-  TOGGLE = 8
+  PASSWD = 7,
+  TOGGLE = 14,
 };
 
 enum VendorKey
