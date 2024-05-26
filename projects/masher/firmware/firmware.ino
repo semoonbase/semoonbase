@@ -1,45 +1,6 @@
 #include "Keyboard.h"
 
-// define variables for pins
-enum GPIOAssignment
-{
-  DELL = 2,
-  HP = 3,
-  LENOVO = 4,
-  NETBOOT = 5,
-  BLANCCO = 6,
-  PASSWD = 7,
-  TOGGLE = 14,
-};
-
-enum VendorKey
-{
-  DELL_KEY = KEY_F2,
-  HP_KEY = KEY_F10,
-  LENOVO_KEY = KEY_F1,
-  NETBOOT_KEY = KEY_F12,
-};
-
-/// @brief Maps a GPIOAssignment to a Keyboard Key.
-/// @param vendor Vedor assignment to get key for.
-/// @return Key to mash.
-VendorKey mapAssignment(GPIOAssignment vendor)
-{
-  switch (vendor)
-  {
-  case DELL:
-    return DELL_KEY;
-  case HP:
-    return HP_KEY;
-  case LENOVO:
-    return LENOVO_KEY;
-  case NETBOOT:
-    return NETBOOT_KEY;
-
-  default:
-    return -1;
-  }
-}
+#include "gpio.h"
 
 // TODO: add password functionallity
 // const int selectPassword = 7;
