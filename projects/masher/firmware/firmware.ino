@@ -1,100 +1,40 @@
 #include "Keyboard.h"
 
-#include "gpio.h"
+#include "config.h"
+#include "core.hpp"
 
-// TODO: add password functionallity
-// const int selectPassword = 7;
-// TODO(Lucas): Remove global mutable state
-bool buttonToggle = false;
-int switchState = 0;
-// Delay on the rising and falling edges of the simulated keypress in milliseconds
-int mashDelay = 100;
-
-void pinInput(int pin)
+/// @brief  Set the pin as input with pullup
+/// @param pin GPIO pin to set as input
+void makeInput(int pin)
 {
   pinMode(pin, INPUT_PULLUP);
 }
 
 void setup()
 {
-  // Declare the inputs as Pullups
-  pinInput(DELL);
-  pinInput(HP);
-  pinInput(LENOVO);
-  pinInput(NETBOOT);
-  pinInput(BLANCCO);
-  // TODO: add password functionallity
-  // pinmode(selectPassword, INPUT_PULLUP);
-  pinMode(TOGGLE, INPUT_PULLUP);
+  makeInput(gpio::Pin::DELL);
+  makeInput(gpio::Pin::HP);
+  makeInput(gpio::Pin::LENOVO);
+  makeInput(gpio::Pin::NETBOOT);
+  makeInput(gpio::Pin::BLANCCO);
   Keyboard.begin();
 }
 
 void loop()
 {
-  // Handle togglingg of keyboard output
-  maybe_toggle(digitalRead(TOGGLE));
-
-  mash(DELL);
-}
-
-/// @brief Handles toggling of keyboard functionality
-/// @param reading Reading from the digital input.
-void maybe_toggle(int reading)
-{
-  if (reading == HIGH)
-  {
-    buttonToggle = not(buttonToggle);
-    // Reading the switch state when the button is toggled on
-    if (buttonToggle == true)
-    {
-    }
-    // Releasing the keyboard when the button is toggled off
-    if (buttonToggle == false)
-    {
-      Keyboard.end();
-    }
-  }
-  return;
+  mash(gpio::Pin::DELL);
 }
 
 /// @brief  High level key mashing function
 /// @param vendor Vendor to mash key for
 /// @return Error code
-int mash(GPIOAssignment vendor)
+void mash(gpio::Pin vendor)
 {
-  mash_key(vendor);
+  core::mash_key(vendor);
   // Adding delay to ensure the keypress is registered
-  delay(mashDelay);
+  delay(cfg::mashDelay);
   // releasing any pressed keys
   Keyboard.releaseAll();
   // delaying again to ensure a proper gap betwen keypresses
-  delay(mashDelay);
-}
-
-/// @brief Presses the desired key based on digital input
-/// @param key Vendor to mash BIOS key for.
-int mash_key(GPIOAssignment vendor)
-{
-  switch (vendor)
-  {
-  case DELL:
-    Keyboard.press(DELL_KEY);
-    break;
-  case HP:
-    Keyboard.press(HP_KEY);
-    break;
-  case LENOVO:
-    Keyboard.press(LENOVO_KEY);
-    break;
-  case NETBOOT:
-    Keyboard.press(NETBOOT_KEY);
-    break;
-  case BLANCCO:
-    Keyboard.press(KEY_ESC);
-    Keyboard.press(' ');
-    // TODO
-    break;
-  default:
-    break;
-  }
+  delay(cfg::mashDelay);
 }
