@@ -2,6 +2,13 @@
 #include "core.hpp"
 #include "gpio.hpp"
 #include "key.hpp"
+#include "config.h"
+
+void core::setup()
+{
+    gpio::setup();
+    kbemu::setup();
+}
 
 kbemu::Key core::mapAssignment(gpio::Pin vendor)
 {
@@ -22,29 +29,36 @@ kbemu::Key core::mapAssignment(gpio::Pin vendor)
     }
 }
 
-void core::mash_key(gpio::Pin vendor)
+kbemu::Key core::mapKey(gpio::Pin vendor)
 {
     using namespace kbemu;
     switch (vendor)
     {
     case gpio::Pin::DELL:
-        Keyboard.press(Key::DELL);
-        break;
+        return kbemu::DELL;
     case gpio::Pin::HP:
-        Keyboard.press(Key::HP);
-        break;
+        return kbemu::Key::DELL;
     case gpio::Pin::LENOVO:
-        Keyboard.press(Key::LENOVO);
-        break;
+        return kbemu::Key::LENOVO;
     case gpio::Pin::NETBOOT:
-        Keyboard.press(Key::NETBOOT);
-        break;
+        return kbemu::Key::NETBOOT;
     case gpio::Pin::BLANCCO:
-        Keyboard.press(KEY_ESC);
-        Keyboard.press(' ');
-        // TODO
-        break;
-    default:
-        break;
+        return kbemu::Key::BLANCCO;
     }
+}
+
+// TODO(lucas): Move into switching module
+/// @brief  High level key mashing function
+/// @param vendor Vendor to mash key for
+/// @return Error code
+void core::mash(gpio::Pin vendor)
+{
+    Keyboard.press(mapKey(vendor));
+
+    // Adding delay to ensure the keypress is registered
+    delay(cfg::mashDelay);
+    // releasing any pressed keys
+    Keyboard.releaseAll();
+    // delaying again to ensure a proper gap betwen keypresses
+    delay(cfg::mashDelay);
 }

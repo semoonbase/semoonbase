@@ -15,5 +15,5 @@ namespace gpio
     };
 
     /// @brief Assigns the GPIO pin roles
-    void assign_pins();
+    void setup();
 }

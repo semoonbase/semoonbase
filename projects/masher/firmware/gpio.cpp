@@ -8,7 +8,7 @@ void makeInput(int pin)
 }
 
 /// @brief Assigns the GPIO pin roles
-void gpio::assign_pins()
+void gpio::setup()
 {
     makeInput(gpio::Pin::DELL);
     makeInput(gpio::Pin::HP);
