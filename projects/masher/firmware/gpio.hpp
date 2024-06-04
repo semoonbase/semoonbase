@@ -4,7 +4,6 @@
 
 namespace gpio
 {
-    /// @brief Enumerates the GPIO assignments.
     typedef enum Pin
     {
         DELL = 2,
@@ -14,6 +13,5 @@ namespace gpio
         BLANCCO = 6,
     };
 
-    /// @brief Assigns the GPIO pin roles
     void setup();
 }

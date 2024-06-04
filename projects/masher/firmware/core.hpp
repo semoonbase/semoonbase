@@ -11,13 +11,11 @@ namespace core
     /// @brief  Initialize the core module and its dependencies.
     void setup();
 
-    /// @brief Maps a GPIOAssignment to a Keyboard Key.
-    /// @param vendor Vedor assignment to get key for.
-    /// @return Key to mash.
-    kbemu::Key mapAssignment(gpio::Pin vendor);
-
-    /// @brief Presses the desired key based on digital input
-    /// @param key Vendor to mash BIOS key for.
+    /**
+     * @brief Maps a GPIOAssignment to a Keyboard Key.
+     * @param vendor Vedor assignment to get key for.
+     * @return Key to mash.
+     */
     kbemu::Key mapKey(gpio::Pin vendor);
 
     void mash(gpio::Pin vendor);

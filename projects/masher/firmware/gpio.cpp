@@ -1,7 +1,9 @@
 #include "gpio.hpp"
 
-/// @brief  Set the pin as input with pullup
-/// @param pin GPIO pin to set as input
+/**
+ * @brief Set the pin as input with pullup
+ * @param pin GPIO pin to set as input
+ */
 void makeInput(int pin)
 {
     pinMode(pin, INPUT_PULLUP);
