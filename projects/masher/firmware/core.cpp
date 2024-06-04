@@ -30,8 +30,10 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
         return Key::LENOVO;
     case Pin::NETBOOT:
         return Key::NETBOOT;
-    case Pin::BLANCCO:
-        return Key::BLANCCO;
+    case Pin::ESCAPE:
+        return Key::ESCAPE;
+    case Pin::SPACE:
+        return Key::SPACE;
     }
 }
 

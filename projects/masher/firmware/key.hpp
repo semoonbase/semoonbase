@@ -14,7 +14,8 @@ namespace kbemu
         HP = KEY_F10,
         LENOVO = KEY_F1,
         NETBOOT = KEY_F12,
-        BLANCCO = KEY_ESC,
+        ESCAPE = KEY_ESC,
+        SPACE = KEY_TAB,
     };
 
     /// @brief Initializes keyboard emulation.
