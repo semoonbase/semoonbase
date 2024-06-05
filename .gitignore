@@ -7,5 +7,7 @@
 .moon/cache
 .moon/docker
 .parcel-cache
+*.{a,o,so,dll}
 
+# Tooling Caches
 **/node_modules
