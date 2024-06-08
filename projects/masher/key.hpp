@@ -8,7 +8,7 @@ namespace kbemu
     ///
     /// @details These are the keys that are pressed to take a PC's
     ///          firmware to the target menu.
-    typedef enum Key
+    enum Key
     {
         DELL = KEY_F2,
         HP = KEY_F10,

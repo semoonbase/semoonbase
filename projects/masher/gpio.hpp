@@ -7,7 +7,7 @@ namespace gpio
     /**
      * @brief GPIO pin assignment enumeration.
      */
-    typedef enum Pin
+    enum Pin
     {
         DELL = 1,
         HP = 2,
@@ -29,6 +29,11 @@ namespace gpio
         int esc;
         int space;
     };
+
+    /**
+     * @brief GPIO switch reading function.
+     */
+    GPIOReading readGPIO();
 
     /**
      * @brief GPIO pin active check function.

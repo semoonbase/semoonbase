@@ -1,6 +1,20 @@
 
+#include <avr/io.h>
+#include <util/delay.h>
+
 #include "core.hpp"
 #include "key.hpp"
+
+// AVR-GCC Compatibility
+int main()
+{
+  setup();
+  while (1)
+  {
+    loop();
+  }
+  return 0;
+}
 
 void setup()
 {

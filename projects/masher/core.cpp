@@ -34,6 +34,8 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
         return Key::ESCAPE;
     case Pin::SPACE:
         return Key::SPACE;
+    default:
+        return Key::ESCAPE;
     }
 }
 
