@@ -4,8 +4,9 @@
     "projects/*"
   ],
   "scripts": {
+    "dep-update": "git submodule update --init",
     "dep-catch3": "cd lib/catch3 && npx bazelisk build //...",
-    "postinstall": "npm run dep-catch3"
+    "postinstall": "npm run dep-update; npm run dep-catch3"
   },
   "dependencies": {
     "@bazel/bazelisk": "^1.19.0"
