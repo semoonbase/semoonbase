@@ -7,4 +7,4 @@ ARDUINO_LIBS = HID Keyboard
 USER_LIB_PATH = $(HOME)/Arduino/libraries
 ARDUINO_LIB_PATH = /usr/share/arduino/hardware/arduino/avr/libraries
 
-include ../../lib/arduino-mk/Arduino.mk
+include ../../lib/Arduino-Makefile/Arduino.mk
