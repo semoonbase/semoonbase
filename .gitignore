@@ -12,6 +12,8 @@
 *.so
 *.dll
 **/build*/
+.pio/
+bazel*
 
 # Tooling Caches
 **/node_modules
