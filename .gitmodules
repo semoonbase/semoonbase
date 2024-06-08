@@ -1,7 +1,0 @@
-[submodule "lib/catch3"]
-path = lib/catch3
-url = https://github.com/catchorg/Catch2.git
-branch = v3.6.0
-[submodule "lib/Arduino-Makefile"]
-	path = lib/Arduino-Makefile
-	url = https://github.com/sudar/Arduino-Makefile.git

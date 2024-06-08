@@ -2,8 +2,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "core.hpp"
-#include "key.hpp"
+#include "core.h"
+#include "key.h"
 
 // AVR-GCC Compatibility
 int main()
