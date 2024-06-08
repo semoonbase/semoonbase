@@ -10,7 +10,7 @@
     "install-lib": "arduino-cli lib install Keyboard HID",
     "build": "arduino-cli compile -b arduino:avr:leonardo",
     "build-native": "make",
-    "iter": "clear; npm run build",
+    "iter": "clear; npm run build-native",
     "flash-win": "arduino-cli upload -p COM5 --fqbn arduino:avr:leonardo firmware",
     "flash-lin": "arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:leonardo firmware",
     "dev": "npm run build; npm run flash-lin; showkey -a"
