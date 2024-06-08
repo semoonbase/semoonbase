@@ -1,4 +1,4 @@
-#include "key.hpp"
+#include "key.h"
 
 void kbemu::setup()
 {

@@ -3,8 +3,8 @@
 /// @details This file contains the core functions for the masher project.
 ///          This includes universal dependencies and module glue code.
 
-#include "gpio.hpp"
-#include "key.hpp"
+#include "gpio.h"
+#include "key.h"
 
 namespace core
 {

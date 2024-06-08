@@ -1,8 +1,7 @@
 #include "Keyboard.h"
-#include "core.hpp"
-#include "gpio.hpp"
-#include "key.hpp"
-#include "config.h"
+#include "core.h"
+#include "gpio.h"
+#include "key.h"
 
 void core::setup()
 {
@@ -47,12 +46,13 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
  */
 void core::mash(gpio::Pin vendor)
 {
+    const int mashDelay = 100;
     Keyboard.press(mapKey(vendor));
 
     // Adding delay to ensure the keypress is registered
-    delay(cfg::mashDelay);
+    delay(mashDelay);
     // releasing any pressed keys
     Keyboard.releaseAll();
     // delaying again to ensure a proper gap betwen keypresses
-    delay(cfg::mashDelay);
+    delay(mashDelay);
 }

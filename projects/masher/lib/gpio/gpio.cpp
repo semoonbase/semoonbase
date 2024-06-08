@@ -1,4 +1,4 @@
-#include "gpio.hpp"
+#include "gpio.h"
 
 /**
  * @brief Set the pin as input with pullup
