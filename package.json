@@ -2,5 +2,12 @@
   "name": "sembase",
   "workspaces": [
     "projects/*"
-  ]
+  ],
+  "scripts": {
+    "dep-catch3": "cd lib/catch3 && npx bazelisk build //...",
+    "postinstall": "npm run dep-catch3"
+  },
+  "dependencies": {
+    "@bazel/bazelisk": "^1.19.0"
+  }
 }
