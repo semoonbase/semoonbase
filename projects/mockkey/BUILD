@@ -1,4 +1,3 @@
-
 cc_library(
     name = "mockkey",
     srcs = ["Keyboard.cc"],

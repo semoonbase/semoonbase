@@ -5,13 +5,13 @@ load(
 
 platformio_project(
     name = "masher",
-    board = "leonardo",
     src = "src/main.cc",
+    board = "leonardo",
     framework = "arduino",
-    platform = "atmelavr",
-    deps = [
-        "//projects/masher/lib/core:core",
-    ],
     lib_deps = ["Keyboard"],
+    platform = "atmelavr",
     visibility = ["//visibility:public"],
+    deps = [
+        "//projects/masher/lib/core",
+    ],
 )

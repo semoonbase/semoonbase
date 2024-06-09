@@ -10,13 +10,17 @@ git_repository(
 )
 
 load("@platformio_rules//bazel:deps.bzl", "platformio_rules_dependencies")
+
 platformio_rules_dependencies()
 
 load("@platformio_rules//bazel:transitive.bzl", "platformio_rules_transitive_dependencies")
+
 platformio_rules_transitive_dependencies()
 
 load("@platformio_rules//bazel:pip_parse.bzl", "platformio_rules_pip_parse_dependencies")
+
 platformio_rules_pip_parse_dependencies()
 
 load("@platformio_rules//bazel:pip_install.bzl", "platformio_rules_pip_install_dependencies")
+
 platformio_rules_pip_install_dependencies()

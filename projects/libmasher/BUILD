@@ -5,17 +5,25 @@ load(
 
 platformio_library(
     name = "avr",
-    hdr = "core.h",
     src = "core.cpp",
+    hdr = "core.h",
     visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "native",
-    hdrs = ["src/core.h", "src/gpio.h", "src/key.h"],
-    srcs = ["src/core.cpp", "src/gpio.cpp", "src/key.cpp"],
-    deps = [
-        "//projects/mockkey:mockkey",
+    srcs = [
+        "src/core.cpp",
+        "src/gpio.cpp",
+        "src/key.cpp",
+    ],
+    hdrs = [
+        "src/core.h",
+        "src/gpio.h",
+        "src/key.h",
     ],
     visibility = ["//visibility:public"],
+    deps = [
+        "//projects/mockkey",
+    ],
 )
