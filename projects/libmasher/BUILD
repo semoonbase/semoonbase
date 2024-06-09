@@ -4,10 +4,28 @@ load(
 )
 
 platformio_library(
+    name = "gpio-avr",
+    src = "gpio.cpp",
+    hdr = "gpio.h",
+    visibility = ["//visibility:public"],
+)
+
+platformio_library(
+    name = "key-avr",
+    src = "key.cpp",
+    hdr = "key.h",
+    visibility = ["//visibility:public"],
+)
+
+platformio_library(
     name = "avr",
     src = "core.cpp",
     hdr = "core.h",
     visibility = ["//visibility:public"],
+    deps = [
+        ":gpio-avr",
+        ":key-avr",
+    ],
 )
 
 cc_library(
