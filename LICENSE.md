@@ -1,5 +1,7 @@
 # SE Moonbase Operations License
 
+This license applies to all files in the SE Moonbase Operations Project unless otherwise noted.
+
 Copyright 2024 The SE Moonbase Operations Project
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
