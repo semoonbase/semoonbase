@@ -31,14 +31,14 @@ platformio_library(
 cc_library(
     name = "native",
     srcs = [
-        "src/core.cpp",
-        "src/gpio.cpp",
-        "src/key.cpp",
+        "core.cpp",
+        "gpio.cpp",
+        "key.cpp",
     ],
     hdrs = [
-        "src/core.h",
-        "src/gpio.h",
-        "src/key.h",
+        "core.h",
+        "gpio.h",
+        "key.h",
     ],
     visibility = ["//visibility:public"],
     deps = [
