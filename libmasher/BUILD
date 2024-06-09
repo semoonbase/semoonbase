@@ -42,6 +42,6 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        "//projects/mockkey",
+        "//mockkey",
     ],
 )
