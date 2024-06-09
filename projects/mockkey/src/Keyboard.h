@@ -7,7 +7,10 @@
  * on non-Arduino platforms.
  */
 
+#include <cstddef>
 #include <cstdint>
+
+#define KEY_LOG_SIZE 10
 
 // Modifiers
 #define KEY_LEFT_CTRL 0x80
@@ -104,12 +107,13 @@ typedef struct
     uint8_t keys[6];
 } KeyReport;
 
-class Keyboard_ : public Print
+class Keyboard_
 {
 private:
-    KeyReport _keyReport;
     const uint8_t *_asciimap;
     void sendReport(KeyReport *keys);
+    size_t keyLogIndex;
+    KeyReport keyLog[];
 
 public:
     Keyboard_(void);
@@ -120,8 +124,7 @@ public:
     size_t press(uint8_t k);
     size_t release(uint8_t k);
     void releaseAll(void);
+
+    std::array<KeyReport, KEY_LOG_SIZE> getKeyLog();
 };
 extern Keyboard_ Keyboard;
-
-#endif
-#endif
