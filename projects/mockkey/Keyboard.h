@@ -9,6 +9,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <array>
 
 #define KEY_LOG_SIZE 10
 
@@ -113,7 +114,7 @@ private:
     const uint8_t *_asciimap;
     void sendReport(KeyReport *keys);
     size_t keyLogIndex;
-    KeyReport keyLog[];
+    std::array<KeyReport, KEY_LOG_SIZE> keyLog;
 
 public:
     Keyboard_(void);

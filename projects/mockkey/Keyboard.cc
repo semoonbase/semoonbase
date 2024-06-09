@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <cstddef>
+#include <array>
 
 /**
  * @brief Initialize the global Keyboard Object
@@ -9,7 +10,7 @@
 void Keyboard_::begin(const uint8_t *layout)
 {
     _asciimap = layout;
-    keyLog = new KeyReport[KEY_LOG_SIZE];
+    keyLog = std::array<KeyReport, KEY_LOG_SIZE>();
     keyLogIndex = 0;
 }
 
@@ -76,7 +77,7 @@ size_t Keyboard_::write(const uint8_t *buffer, size_t size)
 /**
  * @brief Press a single key
  */
-size_t press(uint8_t k)
+size_t Keyboard_::press(uint8_t k)
 {
     return write(k);
 }
@@ -84,7 +85,7 @@ size_t press(uint8_t k)
 /**
  * @brief Release a single key
  */
-size_t release(uint8_t k)
+size_t Keyboard_::release(uint8_t k)
 {
     return write(k | 0x80);
 }
@@ -92,7 +93,7 @@ size_t release(uint8_t k)
 /**
  * @brief Release all keys
  */
-void releaseAll()
+void Keyboard_::releaseAll()
 {
     KeyReport _keyReport;
     _keyReport.modifiers = 0;
@@ -107,7 +108,7 @@ void releaseAll()
 /**
  * @brief Get the key log
  */
-std::array<KeyReport, KEY_LOG_SIZE> getKeyLog()
+std::array<KeyReport, KEY_LOG_SIZE> Keyboard_::getKeyLog()
 {
-    return keyLog;
+    return this->keyLog;
 }

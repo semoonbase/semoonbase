@@ -1,7 +1,7 @@
 
 cc_library(
-    name = "lib",
-    srcs = ["src/Keyboard.cc"],
-    hdrs = ["src/Keyboard.h"],
+    name = "mockkey",
+    srcs = ["Keyboard.cc"],
+    hdrs = ["Keyboard.h"],
     visibility = ["//visibility:public"],
 )
