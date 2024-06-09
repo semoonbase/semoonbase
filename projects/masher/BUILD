@@ -12,6 +12,6 @@ platformio_project(
     platform = "atmelavr",
     visibility = ["//visibility:public"],
     deps = [
-        "//projects/masher/lib/core",
+        "//projects/libmasher:avr",
     ],
 )
