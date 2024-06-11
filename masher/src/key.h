@@ -1,8 +1,6 @@
 #pragma once
 
-#ifdef ARDUINO
 #include "Keyboard.h"
-#endif
 
 namespace kbemu
 {

@@ -1,5 +1,6 @@
 load(
     "@platformio_rules//platformio:platformio.bzl",
+    "platformio_library",
     "platformio_project",
 )
 
@@ -8,10 +9,35 @@ platformio_project(
     src = "src/main.cc",
     board = "leonardo",
     framework = "arduino",
-    lib_deps = ["Keyboard"],
+    lib_deps = [
+        "Keyboard",
+    ],
     platform = "atmelavr",
     visibility = ["//visibility:public"],
     deps = [
-        "//libmasher:avr",
+        ":core",
+        ":gpio",
+        ":key",
     ],
+)
+
+platformio_library(
+    name = "core",
+    src = "src/core.cc",
+    hdr = "src/core.h",
+    visibility = ["//visibility:public"],
+)
+
+platformio_library(
+    name = "gpio",
+    src = "src/gpio.cc",
+    hdr = "src/gpio.h",
+    visibility = ["//visibility:public"],
+)
+
+platformio_library(
+    name = "key",
+    src = "src/key.cc",
+    hdr = "src/key.h",
+    visibility = ["//visibility:public"],
 )

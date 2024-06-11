@@ -50,9 +50,9 @@ void core::mash(gpio::Pin vendor)
     Keyboard.press(mapKey(vendor));
 
     // Adding delay to ensure the keypress is registered
-    delay(mashDelay);
+    // delay(mashDelay);
     // releasing any pressed keys
     Keyboard.releaseAll();
     // delaying again to ensure a proper gap betwen keypresses
-    delay(mashDelay);
+    // delay(mashDelay);
 }
