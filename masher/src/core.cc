@@ -3,6 +3,20 @@
 #include "gpio.h"
 #include "key.h"
 
+#ifndef __AVR__
+#include <gtest/gtest.h>
+/**
+ * @brief Main function of the masher libraries.
+ * @details This is the entry point for masher's library
+ *          test suite and is not intended for production use.
+ */
+int main(int argc, char *argv[])
+{
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+#endif
+
 void core::setup()
 {
     gpio::setup();
