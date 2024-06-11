@@ -41,3 +41,17 @@ platformio_library(
     hdr = "src/key.h",
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "libmasher",
+    srcs = glob(
+        ["src/*.cc"],
+        exclude = ["src/main.cc"],
+    ),
+    hdrs = glob(["src/*.h"]),
+    includes = ["src"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//mockard",
+    ],
+)
