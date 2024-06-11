@@ -53,5 +53,6 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//mockard",
+        "@com_google_googletest//:gtest_main",
     ],
 )
