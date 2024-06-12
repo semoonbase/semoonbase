@@ -52,7 +52,7 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
     }
 }
 
-/*
+/**
  * TODO(lucas): Move into switching module
  * @brief  High level key mashing function
  * @param vendor Vendor to mash key for
