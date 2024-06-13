@@ -52,6 +52,18 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
     }
 }
 
+#ifndef __AVR__
+TEST(core, mapKey)
+{
+    EXPECT_EQ(core::mapKey(gpio::Pin::DELL), kbemu::Key::DELL);
+    EXPECT_EQ(core::mapKey(gpio::Pin::HP), kbemu::Key::DELL);
+    EXPECT_EQ(core::mapKey(gpio::Pin::LENOVO), kbemu::Key::LENOVO);
+    EXPECT_EQ(core::mapKey(gpio::Pin::NETBOOT), kbemu::Key::NETBOOT);
+    EXPECT_EQ(core::mapKey(gpio::Pin::ESCAPE), kbemu::Key::ESCAPE);
+    EXPECT_EQ(core::mapKey(gpio::Pin::SPACE), kbemu::Key::SPACE);
+}
+#endif
+
 /**
  * TODO(lucas): Move into switching module
  * @brief  High level key mashing function
