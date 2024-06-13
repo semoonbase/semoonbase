@@ -56,3 +56,14 @@ cc_library(
         "@com_google_googletest//:gtest_main",
     ],
 )
+
+cc_test(
+    name = "core-test",
+    size = "small",
+    srcs = ["src/core.cc"],
+    deps = [
+        ":libmasher",
+        "//mockard",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
