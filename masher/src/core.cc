@@ -43,7 +43,6 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
     }
 }
 
-#ifndef __AVR__
 #ifdef GTEST
 TEST(core, mapKey)
 {
@@ -54,7 +53,6 @@ TEST(core, mapKey)
     EXPECT_EQ(core::mapKey(gpio::Pin::ESCAPE), kbemu::Key::ESCAPE);
     EXPECT_EQ(core::mapKey(gpio::Pin::SPACE), kbemu::Key::SPACE);
 }
-#endif
 #endif
 
 /**
