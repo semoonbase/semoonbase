@@ -3,6 +3,11 @@
 #include "gpio.h"
 #include "key.h"
 
+#ifdef UNIT_TEST
+#include <gtest/gtest.h>
+#include "KeyboardLayout_en_US.h"
+#endif
+
 void core::setup()
 {
     gpio::setup();
@@ -38,7 +43,19 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
     }
 }
 
-/*
+#ifdef GTEST
+TEST(core, mapKey)
+{
+    EXPECT_EQ(core::mapKey(gpio::Pin::DELL), kbemu::Key::DELL);
+    EXPECT_EQ(core::mapKey(gpio::Pin::HP), kbemu::Key::DELL);
+    EXPECT_EQ(core::mapKey(gpio::Pin::LENOVO), kbemu::Key::LENOVO);
+    EXPECT_EQ(core::mapKey(gpio::Pin::NETBOOT), kbemu::Key::NETBOOT);
+    EXPECT_EQ(core::mapKey(gpio::Pin::ESCAPE), kbemu::Key::ESCAPE);
+    EXPECT_EQ(core::mapKey(gpio::Pin::SPACE), kbemu::Key::SPACE);
+}
+#endif
+
+/**
  * TODO(lucas): Move into switching module
  * @brief  High level key mashing function
  * @param vendor Vendor to mash key for
@@ -47,12 +64,12 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
 void core::mash(gpio::Pin vendor)
 {
     const int mashDelay = 100;
-    Keyboard.press(mapKey(vendor));
+    // Keyboard.press(mapKey(vendor));
 
     // Adding delay to ensure the keypress is registered
     // delay(mashDelay);
     // releasing any pressed keys
-    Keyboard.releaseAll();
+    // Keyboard.releaseAll();
     // delaying again to ensure a proper gap betwen keypresses
     // delay(mashDelay);
 }

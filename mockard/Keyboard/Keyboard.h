@@ -7,9 +7,13 @@
  * on non-Arduino platforms.
  */
 
+// TODO(Lucas): Make C compatible before publish
+#ifdef __cplusplus
 #include <cstddef>
 #include <cstdint>
 #include <array>
+#endif
+
 
 #define KEY_LOG_SIZE 10
 
@@ -128,4 +132,4 @@ public:
 
     std::array<KeyReport, KEY_LOG_SIZE> getKeyLog();
 };
-extern Keyboard_ Keyboard;
+// extern Keyboard_ Keyboard;

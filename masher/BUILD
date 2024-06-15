@@ -53,5 +53,54 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//mockard",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "key-test",
+    size = "small",
+    srcs = [
+        "src/key.cc",
+    ],
+    defines = [
+        "UNIT_TEST",
+    ],
+    deps = [
+        ":libmasher",
+        "//mockard",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "gpio-test",
+    size = "small",
+    srcs = [
+        "src/gpio.cc",
+    ],
+    defines = [
+        "UNIT_TEST",
+    ],
+    deps = [
+        ":libmasher",
+        "//mockard",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "core-test",
+    size = "small",
+    srcs = [
+        "src/core.cc",
+    ],
+    defines = [
+        "UNIT_TEST",
+    ],
+    deps = [
+        ":libmasher",
+        "//mockard",
+        "@com_google_googletest//:gtest_main",
     ],
 )

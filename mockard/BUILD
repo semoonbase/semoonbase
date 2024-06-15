@@ -22,12 +22,8 @@ cc_library(
 
 cc_library(
     name = "keyboard",
-    srcs = [
-        "Keyboard.cpp",
-    ],
-    hdrs = [
-        "Keyboard.h",
-    ],
-    includes = ["."],
+    srcs = glob(["Keyboard/*.cpp"]),
+    hdrs = glob(["Keyboard/*.h"]),
+    includes = ["Keyboard"],
     visibility = ["//visibility:public"],
 )
