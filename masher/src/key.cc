@@ -15,7 +15,6 @@ void kbemu::setup()
 #ifdef UNIT_TEST
 TEST(kbemu, setup_interface)
 {
-    Keyboard_ Keyboard = Keyboard_();
-    Keyboard.begin();
+    kbemu::setup();
 }
 #endif
