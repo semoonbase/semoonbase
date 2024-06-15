@@ -1,6 +1,11 @@
 #include "Arduino.h"
 #include "gpio.h"
 
+#ifdef UNIT_TEST
+#include <gtest/gtest.h>
+#include "KeyboardLayout_en_US.h"
+#endif
+
 /**
  * @brief Set the pin as input with pullup
  * @param pin GPIO pin to set as input
@@ -23,6 +28,13 @@ void gpio::setup()
     makeInput(gpio::Pin::SPACE);
 }
 
+#ifdef UNIT_TEST
+TEST(gpio, setup_interface)
+{
+    gpio::setup();
+}
+
+#endif
 /**
  * @brief Read the state of all GPIO pins
  * @return GPIOReading struct containing the state of each pin
