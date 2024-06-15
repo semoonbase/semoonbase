@@ -88,3 +88,19 @@ cc_test(
         "@com_google_googletest//:gtest_main",
     ],
 )
+
+cc_test(
+    name = "core-test",
+    size = "small",
+    srcs = [
+        "src/core.cc",
+    ],
+    defines = [
+        "UNIT_TEST",
+    ],
+    deps = [
+        ":libmasher",
+        "//mockard",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
