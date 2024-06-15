@@ -1,8 +1,16 @@
 FROM debian:bullseye-slim
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
+RUN groupadd --gid 1000 dev \
+    && useradd -s /bin/bash --uid 1000 --gid 1000 -m dev \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+    build-essential zip unzip \
     git \
-    python3 \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+    python3 python3-pip \
+    nodejs npm \
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && npm install -g @bazel/bazelisk \
+    && npm cache clean --force \
+    && python3 -m pip install -U --no-cache-dir platformio

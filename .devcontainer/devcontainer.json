@@ -4,5 +4,8 @@
 	"name": "Moonbase",
 	"build": {
 		"dockerfile": "Dockerfile"
-	}
+	},
+	"runArgs": [
+		"-u", "1000"
+	]
 }
