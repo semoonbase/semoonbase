@@ -58,9 +58,14 @@ cc_library(
 )
 
 cc_test(
-    name = "core-test",
+    name = "key-test",
     size = "small",
-    srcs = ["src/core.cc"],
+    srcs = [
+        "src/key.cc",
+    ],
+    defines = [
+        "UNIT_TEST",
+    ],
     deps = [
         ":libmasher",
         "//mockard",

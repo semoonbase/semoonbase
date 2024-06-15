@@ -4,6 +4,10 @@
 #include <cstddef>
 #include <array>
 
+Keyboard_::Keyboard_()
+{
+}
+
 /**
  * @brief Initialize the global Keyboard Object
  */

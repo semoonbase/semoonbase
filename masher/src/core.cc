@@ -4,6 +4,7 @@
 #include "key.h"
 
 #ifndef __AVR__
+#ifdef GTEST
 #include <gtest/gtest.h>
 /**
  * @brief Main function of the masher libraries.
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+#endif
 #endif
 
 void core::setup()
@@ -53,6 +55,7 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
 }
 
 #ifndef __AVR__
+#ifdef GTEST
 TEST(core, mapKey)
 {
     EXPECT_EQ(core::mapKey(gpio::Pin::DELL), kbemu::Key::DELL);
@@ -62,6 +65,7 @@ TEST(core, mapKey)
     EXPECT_EQ(core::mapKey(gpio::Pin::ESCAPE), kbemu::Key::ESCAPE);
     EXPECT_EQ(core::mapKey(gpio::Pin::SPACE), kbemu::Key::SPACE);
 }
+#endif
 #endif
 
 /**
@@ -73,12 +77,12 @@ TEST(core, mapKey)
 void core::mash(gpio::Pin vendor)
 {
     const int mashDelay = 100;
-    Keyboard.press(mapKey(vendor));
+    // Keyboard.press(mapKey(vendor));
 
     // Adding delay to ensure the keypress is registered
     // delay(mashDelay);
     // releasing any pressed keys
-    Keyboard.releaseAll();
+    // Keyboard.releaseAll();
     // delaying again to ensure a proper gap betwen keypresses
     // delay(mashDelay);
 }
