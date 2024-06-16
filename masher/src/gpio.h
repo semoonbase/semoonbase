@@ -13,8 +13,8 @@ namespace gpio
         HP = 2,
         LENOVO = 3,
         NETBOOT = 4,
-        SPACE = 5,
-        ESCAPE = 6,
+        HP_LOCAL = 5,
+        ERASE_TOOL = 6,
     };
 
     /**
@@ -26,9 +26,14 @@ namespace gpio
         int hp;
         int lenovo;
         int netboot;
-        int esc;
-        int space;
+        int hp_local;
+        int erase_tool;
     };
+
+    /**
+     * @brief Give a zerod GPIOReading object.
+     */
+    GPIOReading zeroReading();
 
     /**
      * @brief GPIO switch reading function.

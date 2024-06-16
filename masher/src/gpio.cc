@@ -24,8 +24,8 @@ void gpio::setup()
     makeInput(gpio::Pin::HP);
     makeInput(gpio::Pin::LENOVO);
     makeInput(gpio::Pin::NETBOOT);
-    makeInput(gpio::Pin::ESCAPE);
-    makeInput(gpio::Pin::SPACE);
+    makeInput(gpio::Pin::HP_LOCAL);
+    makeInput(gpio::Pin::ERASE_TOOL);
 }
 
 #ifdef UNIT_TEST
@@ -46,8 +46,22 @@ gpio::GPIOReading gpio::readGPIO()
     reading.hp = digitalRead(gpio::Pin::HP);
     reading.lenovo = digitalRead(gpio::Pin::LENOVO);
     reading.netboot = digitalRead(gpio::Pin::NETBOOT);
-    reading.esc = digitalRead(gpio::Pin::ESCAPE);
-    reading.space = digitalRead(gpio::Pin::SPACE);
+    reading.hp_local = digitalRead(gpio::Pin::HP_LOCAL);
+    reading.erase_tool = digitalRead(gpio::Pin::ERASE_TOOL);
+    return reading;
+}
+
+/**
+ * @brief Give a zerod GPIOReading object.
+ */
+gpio::GPIOReading gpio::zeroReading() {
+    GPIOReading reading;
+    reading.dell = 0;
+    reading.hp = 0;
+    reading.lenovo = 0;
+    reading.netboot = 0;
+    reading.hp_local = 0;
+    reading.erase_tool = 0;
     return reading;
 }
 
@@ -59,7 +73,7 @@ gpio::GPIOReading gpio::readGPIO()
  */
 bool gpio::isActive(GPIOReading reading)
 {
-    if (reading.dell == HIGH || reading.hp == HIGH || reading.lenovo == HIGH || reading.netboot == HIGH || reading.esc == HIGH || reading.space == HIGH)
+    if (reading.dell == HIGH || reading.hp == HIGH || reading.lenovo == HIGH || reading.netboot == HIGH || reading.hp_local == HIGH || reading.erase_tool == HIGH)
     {
         return true;
     }
