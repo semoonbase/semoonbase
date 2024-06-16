@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bullseye
 
 RUN groupadd --gid 1000 dev \
     && useradd -s /bin/bash --uid 1000 --gid 1000 -m dev \
