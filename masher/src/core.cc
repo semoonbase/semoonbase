@@ -43,7 +43,7 @@ kbemu::Key core::mapKey(gpio::Pin vendor)
     }
 }
 
-#ifdef GTEST
+#ifdef UNIT_TEST
 TEST(core, mapKey)
 {
     EXPECT_EQ(core::mapKey(gpio::Pin::DELL), kbemu::Key::DELL);
