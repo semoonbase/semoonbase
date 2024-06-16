@@ -18,5 +18,10 @@ namespace core
      */
     kbemu::Key mapKey(gpio::Pin vendor);
 
+    /**
+     * @brief Fallibly reduce the GPIOReading to a single key
+     */
+    kbemu::Key tryReduceReport(gpio::GPIOReading reading);
+
     void mash(gpio::Pin vendor);
 } // namespace core

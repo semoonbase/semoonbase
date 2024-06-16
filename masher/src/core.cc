@@ -56,6 +56,25 @@ TEST(core, mapKey)
 #endif
 
 /**
+ * @brief Fallibly reduce the GPIOReading to a single key
+ */
+kbemu::Key core::tryReduceReport(gpio::GPIOReading reading) {
+    using namespace gpio;
+    using namespace kbemu;
+
+    return Key::NONE;
+}
+
+#ifdef UNIT_TEST
+TEST(core, tryReduceReport)
+{
+    // Switch off
+    gpio::GPIOReading reading;
+    EXPECT_EQ(core::tryReduceReport(reading), kbemu::Key::NONE);
+}
+#endif
+
+/**
  * TODO(lucas): Move into switching module
  * @brief  High level key mashing function
  * @param vendor Vendor to mash key for

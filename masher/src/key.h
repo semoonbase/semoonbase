@@ -16,6 +16,7 @@ namespace kbemu
         NETBOOT = KEY_F12,
         ESCAPE = KEY_ESC,
         SPACE = KEY_TAB,
+        NONE = KEY_TAB,
     };
 
     /// @brief Initializes keyboard emulation.
