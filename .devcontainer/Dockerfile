@@ -5,7 +5,7 @@ RUN groupadd --gid 1000 dev \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
     build-essential zip unzip \
-    git \
+    git openssh-client \
     python3 python3-pip \
     nodejs npm \
     && apt-get autoremove -y \
