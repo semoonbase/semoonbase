@@ -11,6 +11,6 @@ RUN groupadd --gid 1000 dev \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && npm install -g @bazel/bazelisk \
+    && npm install -g @bazel/bazelisk @bazel/ibazel \
     && npm cache clean --force \
     && python3 -m pip install -U --no-cache-dir platformio
