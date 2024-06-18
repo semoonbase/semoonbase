@@ -1,6 +1,9 @@
 
 #include <cstdint>
 
+#define HIGH 0x1
+#define LOW 0x0
+
 /**
  * @brief Set the mode for a simulated pin.
  *

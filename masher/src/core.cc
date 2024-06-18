@@ -1,4 +1,5 @@
 #include "Keyboard.h"
+#include "Arduino.h"
 #include "core.h"
 #include "gpio.h"
 #include "key.h"
@@ -89,12 +90,12 @@ kbemu::Key core::tryReduceReport(gpio::GPIOReading reading) {
     
     if (countActive(reading) > 1) return Key::UNDEFINED; 
 
-    if (reading.dell) return Key::DELL;
-    if (reading.hp) return Key::HP;
-    if (reading.lenovo) return Key::LENOVO;
-    if (reading.hp_local) return Key::HP_LOCAL;
-    if (reading.netboot) return Key::NETBOOT;
-    if (reading.erase_tool) return Key::ERASE_TOOL;
+    if (reading.dell == HIGH) return Key::DELL;
+    if (reading.hp == HIGH) return Key::HP;
+    if (reading.lenovo == HIGH) return Key::LENOVO;
+    if (reading.hp_local == HIGH) return Key::HP_LOCAL;
+    if (reading.netboot == HIGH) return Key::NETBOOT;
+    if (reading.erase_tool == HIGH) return Key::ERASE_TOOL;
 
     if (!isActive(reading)) return Key::NONE;
     return Key::UNDEFINED;
