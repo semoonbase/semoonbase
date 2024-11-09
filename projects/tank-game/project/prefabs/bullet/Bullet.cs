@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+// FIXME(MORGILIATH): bullets should colle with enemy bullets but not your own
+
 public partial class Bullet : AnimatableBody2D
 {
 	[Signal]
