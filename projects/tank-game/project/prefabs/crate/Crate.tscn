@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://774afuet7afw"]
+
+[ext_resource type="Texture2D" uid="uid://ser28h4ep5la" path="res://assets/Crate.png" id="1_mijmd"]
+[ext_resource type="Script" path="res://prefabs/crate/Crate.cs" id="1_uiwt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0virm"]
+
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_uiwt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mijmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0virm")

@@ -1,0 +1,10 @@
+# Build Artifacts
+.moon/cache
+.moon/docker
+.parcel-cache
+**/__pycache__/
+build/
+
+# Godot artifacts
+**/.godot/
+**/android/

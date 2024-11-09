@@ -1,0 +1,16 @@
+{
+    "NoPlat": {
+        "gdmono-export-templates": "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_export_templates.tpz"
+    },
+    "Linux": {
+        "x86_64": {
+            "gdmono": "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_linux_x86_64.zip"
+        }
+    },
+    "Windows": {
+        "x86_64": {
+            "gdmono": "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_win64.zip"
+        }
+    }
+
+}

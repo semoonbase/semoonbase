@@ -1,0 +1,5 @@
+# SEMOONBASE build directory preparation script.
+
+!mkdir -p build/cache/download
+!mkdir -p build/cache/processed
+!mkdir -p build/deps/bin
